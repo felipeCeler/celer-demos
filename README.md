@@ -1,4 +1,4 @@
 Celer Demo
 ===========
 
-Demos app of Celer Library
+Demos app from Celer Library
