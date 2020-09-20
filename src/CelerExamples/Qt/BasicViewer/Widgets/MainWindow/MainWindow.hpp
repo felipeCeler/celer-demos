@@ -1,11 +1,11 @@
 #ifndef _MYMAINWINDOW_
 #define _MYMAINWINDOW_
 
-#include <QtGui/QtGui>
+#include <Widgets/GLWidget/GLWidget.hpp>
 
 #include "ui_MainWindow.h"
 
-#include <Widgets/GLWidget/GLWidget.hpp>
+#include <QtGui/QKeyEvent>
 
 class QWorkspace;
 

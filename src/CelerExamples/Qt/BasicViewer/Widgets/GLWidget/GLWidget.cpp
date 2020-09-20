@@ -1,20 +1,18 @@
-#include <QtGui/QtGui>
+#include <Widgets/GLWidget/GLWidget.hpp>
+
+#include <QtCore/QDir>
+
+// Qt5 Framework
+// Qt Gui
+#include <QtGui/QMouseEvent>
+#include <QtGui/QKeyEvent>
+#include <QtWidgets/QApplication>
+
 
 #include <stdio.h>
 #include <stdlib.h>
 
-
-#include <Widgets/GLWidget/GLWidget.hpp>
-
-
-GLWidget::GLWidget ( const QGLFormat& format , QWidget* parent , const QGLWidget* shareWidget , Qt::WindowFlags f ) :
-	QGLWidget ( format , parent , shareWidget , f )
-{
-
-}
-
-GLWidget::GLWidget (  QWidget* parent , const QGLWidget* shareWidget , Qt::WindowFlags f ) :
-	QGLWidget ( parent , shareWidget , f )
+GLWidget::GLWidget (QWidget * parent) : QOpenGLWidget (parent)
 {
 
 }
@@ -197,7 +195,7 @@ void GLWidget::mouseMoveEvent ( QMouseEvent *event )
 
 		camera_.rotate ( pitch , heading , roll );
 
-		/*! Três coisas :
+		/*! Trï¿½s coisas :
 		 *  - event->pos() retorna coordenadas x e y relativa a widget que recebeu o evento.
 		 *  - mapToGlobla mapei as coordenadas da widget para coordenada global da tela.
 		 *  - QCurso::setPos() posiciona o mouse em coordenada global.
@@ -254,10 +252,10 @@ void GLWidget::paintGL ( )
 void GLWidget::loadShaders ( )
 {
 	QDir shadersDir = QDir ( qApp->applicationDirPath () );
-	qDebug () << "Directory " << shadersDir.path ();
+	//qDebug () << "Directory " << shadersDir.path ();
 	shadersDir.cdUp ();
-	qDebug () << "Directory " << shadersDir.path ();
+	//qDebug () << "Directory " << shadersDir.path ();
 
-	boxGeometryShader.create("boxGeometryShader",(shadersDir.path ()+"/share/Shaders/boxGeometryShader.vert").toStdString(),(shadersDir.path ()+"/share/Shaders/boxGeometryShader.geom").toStdString(),(shadersDir.path ()+"/share/Shaders/boxGeometryShader.frag").toStdString());
+	boxGeometryShader.create("boxGeometryShader",("share/Shaders/boxGeometryShader.vert"),("share/Shaders/boxGeometryShader.geom"),("share/Shaders/boxGeometryShader.frag"));
 }
 

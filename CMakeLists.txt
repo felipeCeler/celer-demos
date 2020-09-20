@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 3.14)
 
 project (CelerExamples)
 
@@ -18,7 +18,7 @@ SET( CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/build/bin/ )
 # Do not remember what's the meaning of this  !
 add_definitions(${QT_DEFINITIONS} -Wall)
 
-## - Libraris
+## - Libraries
 add_subdirectory(libs/Celer/src)
 ## - Project Sources with Qt
 add_subdirectory(src/${PROJECT_NAME}/Qt)

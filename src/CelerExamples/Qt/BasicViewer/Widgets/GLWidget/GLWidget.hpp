@@ -13,21 +13,22 @@
 	/// Scene
 #include <Celer/Scene/Camera.hpp>
 
-#include <QtOpenGL/QGLWidget>
+#include <QtWidgets/QOpenGLWidget>
 #include <QtCore/QSet>
 #include <QtCore/QTimer>
 
 
 
-class GLWidget: public QGLWidget
+class GLWidget: public QOpenGLWidget
 {
 		Q_OBJECT
 
 	public:
 
 		// From QGLWidget
-		explicit GLWidget ( const QGLFormat& format , QWidget* parent = 0 , const QGLWidget* shareWidget = 0 , Qt::WindowFlags f = 0 );
-		explicit GLWidget ( QWidget* parent = 0 , const QGLWidget* shareWidget = 0 , Qt::WindowFlags f = 0 );
+		
+		GLWidget (QWidget * parent);
+		
 
 		void initializeGL ( );
 		void resizeGL ( int width , int height );
